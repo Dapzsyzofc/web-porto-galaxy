@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Uploaded Font: Goozeman.otf (Letters A-Z, a-z, space; digits/symbols fallback cleanly to Space Grotesk / JetBrains Mono) */
+    @font-face {
+      font-family: 'Goozeman';
+      src: url("/fonts/Goozeman.otf") format('opentype'), url("data:font/otf;base64,T1RUTwAJAIAAAwAQQ0ZGIC8N77cAAAXkAAAKV09TLzKC7hzFAAABAAAAAGBjbWFwykeCmQAABCAAAAGkaGVhZPVl8bYAAACcAAAANmhoZWEFKwKaAAAA1AAAACRobXR4dMr/TgAAEDwAAADgbWF4cAA5UAAAAAD4AAAABm5hbWV07/xMAAABYAAAAr5wb3N0/7gAMgAABcQAAAAgAAEAAAABAAAl2hvsXw889QADA+gAAAAAyglXcQAAAADKCVdx/6f/XAKUApgAAQADAAIAAAAAAAAAAQAAAu7/BgAAAvj/pwBkApQAAQAAAAAAAAAAAAAAAAAAADcAAFAAADkAAAACAiEBkAAFAAQCvAKKAAAAjAK8AooAAAHdADIA+gAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAAAAAAABweXJzACAAICAeAu7/BgAAA0QApAAAAAEAAAAAAfQCmAAAACAAAAAAABYBDgABAAAAAAAAACQAAAABAAAAAAABAAgAJAABAAAAAAACAAcALAABAAAAAAADABEAMwABAAAAAAAEAAgAJAABAAAAAAAFAAUARAABAAAAAAAGAAgAJAABAAAAAAAHABsASQABAAAAAAAIAAwAZAABAAAAAAAKACAAcAABAAAAAAAQAAgAJAABAAAAAAARAAcALAADAAEECQAAAEgAkAADAAEECQABABAA2AADAAEECQACAA4A6AADAAEECQADACIA9gADAAEECQAEABAA2AADAAEECQAFAAoBGAADAAEECQAGABAA2AADAAEECQAHADYBIgADAAEECQAIABgBWAADAAEECQAKAEABcERlcmVjaG9zIFJlc2VydmFkb3MgcG9yIE1yLiBHb296ZW1hbkdvb3plbWFuUmVndWxhckZPTlRMQUI6T1RGRVhQT1JUMS4wMDBHb296ZW1hbiAtIFBvciBNci4gR29vemVtYW5Nci4gR29vemVtYW5EZXJlY2hvcyBSZXNlcnZhZG9zIE1yLiBHb296ZW1hbgBEAGUAcgBlAGMAaABvAHMAIABSAGUAcwBlAHIAdgBhAGQAbwBzACAAcABvAHIAIABNAHIALgAgAEcAbwBvAHoAZQBtAGEAbgBHAG8AbwB6AGUAbQBhAG4AUgBlAGcAdQBsAGEAcgBGAE8ATgBUAEwAQQBCADoATwBUAEYARQBYAFAATwBS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") format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+      unicode-range: U+0041-005A, U+0061-007A, U+0020;
+    }
+
+    :root {
+      --bg-void: #020205;
+      --text-primary: #F5F7FA;
+      --text-secondary: rgba(245, 247, 250, 0.68);
+      --text-muted: rgba(245, 247, 250, 0.42);
+      --accent-gold: #E5B869;
+      --accent-cyan: #38BDF8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    .font-goozeman {
+      font-family: 'Goozeman', 'Space Grotesk', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
+    .font-display {
+      font-family: 'Goozeman', 'Space Grotesk', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    .font-mono-tech {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Scene Layer Transitions */
+    .scene-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      will-change: transform, opacity;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .scene-layer.scene-active {
+      pointer-events: auto;
+    }
+
+    /* =====================================================================
+       SCI-FI COSMIC HUD & ARCHITECTURAL CARD DESIGN
+       ===================================================================== */
+    .cosmic-card {
+      position: relative;
+      background:
+        radial-gradient(120% 90% at 50% 0%, rgba(229, 184, 105, 0.11) 0%, rgba(14, 18, 30, 0.72) 55%, rgba(6, 8, 14, 0.88) 100%),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 24px 24px, 24px 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 184, 105, 0.24);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        inset 0 0 28px rgba(229, 184, 105, 0.05);
+      clip-path: polygon(
+        0 10px, 10px 0,
+        calc(100% - 10px) 0, 100% 10px,
+        100% calc(100% - 10px), calc(100% - 10px) 100%,
+        10px 100%, 0 calc(100% - 10px)
+      );
+      transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cosmic-card:hover {
+      border-color: rgba(229, 184, 105, 0.55);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.92),
+        0 0 35px rgba(229, 184, 105, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .cosmic-card::before,
+    .cosmic-card::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+      transition: all 0.35s ease;
+    }
+
+    .cosmic-card::before {
+      top: 4px;
+      left: 4px;
+      border-top: 2px solid rgba(229, 184, 105, 0.75);
+      border-left: 2px solid rgba(229, 184, 105, 0.75);
+    }
+
+    .cosmic-card::after {
+      bottom: 4px;
+      right: 4px;
+      border-bottom: 2px solid rgba(56, 189, 248, 0.65);
+      border-right: 2px solid rgba(56, 189, 248, 0.65);
+    }
+
+    /* Tesseract 4D Bookshelf Bay */
+    .tesseract-bay {
+      position: relative;
+      background:
+        radial-gradient(100% 100% at 50% 0%, rgba(245, 158, 11, 0.16) 0%, rgba(8, 7, 10, 0.94) 70%),
+        linear-gradient(90deg, rgba(245, 158, 11, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(245, 158, 11, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 20px 20px, 20px 20px;
+      border: 1px solid rgba(229, 184, 105, 0.42);
+      box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.95),
+        0 0 65px rgba(217, 140, 54, 0.16),
+        inset 0 0 32px rgba(229, 184, 105, 0.08);
+      clip-path: polygon(
+        0 14px, 14px 0,
+        calc(100% - 14px) 0, 100% 14px,
+        100% calc(100% - 14px), calc(100% - 14px) 100%,
+        14px 100%, 0 calc(100% - 14px)
+      );
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tesseract-bay:hover {
+      border-color: rgba(251, 191, 36, 0.8);
+      transform: translateY(-3px) scale(1.005);
+      box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.98),
+        0 0 85px rgba(245, 158, 11, 0.25),
+        inset 0 0 40px rgba(245, 158, 11, 0.12);
+    }
+
+    .tech-module-chip {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(229, 184, 105, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+      transition: all 0.25s ease;
+    }
+
+    .tech-module-chip:hover {
+      border-color: rgba(56, 189, 248, 0.65);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16) 0%, rgba(229, 184, 105, 0.08) 100%);
+      transform: translateY(-1px);
+    }
+
+    .hud-module {
+      background: linear-gradient(180deg, rgba(16, 20, 32, 0.78) 0%, rgba(6, 8, 14, 0.88) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    @keyframes eqWave1 { 0%, 100% { height: 2px; } 50% { height: 11px; } }
+    @keyframes eqWave2 { 0%, 100% { height: 10px; } 50% { height: 3px; } }
+    @keyframes eqWave3 { 0%, 100% { height: 4px; } 50% { height: 12px; } }
+    @keyframes eqWave4 { 0%, 100% { height: 9px; } 50% { height: 2px; } }
+
+    .sound-active .eq-bar-1 { animation: eqWave1 0.85s infinite ease-in-out; }
+    .sound-active .eq-bar-2 { animation: eqWave2 0.65s infinite ease-in-out; }
+    .sound-active .eq-bar-3 { animation: eqWave3 0.95s infinite ease-in-out; }
+    .sound-active .eq-bar-4 { animation: eqWave4 0.75s infinite ease-in-out; }
+
+    .hero-char {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+
+    .nav-item {
+      position: relative;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item.active {
+      color: #FFFFFF;
+      background: rgba(229, 184, 105, 0.14);
+      border: 1px solid rgba(229, 184, 105, 0.4);
+    }
+
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(229, 184, 105, 0.35); border-radius: 9999px; }
